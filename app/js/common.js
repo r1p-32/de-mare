@@ -38,6 +38,17 @@ $(function() {
 		]
 	});
 
+	$('.gallery-slider').slick({
+		nextArrow: '<button type="button" class="slider-arr slider-arr_next"><i>&#xE80C</i></button>',
+		prevArrow: '<button type="button" class="slider-arr slider-arr_prev"><i>&#xE80D</i></button>',
+		arrows: true,
+		accessibility: false,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		centerMode: true,
+		centerPadding: '0px',
+	});
+
 	$('.btn-nav').click(function(){
 		$(this).toggleClass('active');
 		$('.main-mnu').slideToggle('slow');
@@ -56,6 +67,29 @@ $(function() {
 
 	$('.team-item__descr').equalHeights();
 
+	$('ul.gallery-filter').on('click', 'li:not(.active)', function() {
+		var filtered = $(this).attr('data-filter');
+		$(this).addClass('active').siblings().removeClass('active');
+		$(this).closest('.gallery').find('.filter-slide').removeClass('active');
+		if (filtered != 'all') {
+			$('.gallery-slider').slick('slickFilter', '.' + filtered);
+			$('.slick-curent').slick('setPosition');
+		} else {
+			$('.gallery-slider').slick('slickUnfilter');
+		}
+	});
+
+
+		// $('ul.tabs-caption').on('click', 'li:not(.active)', function() {
+	// 	$(this)
+	// 	.addClass('active').siblings().removeClass('active')
+	// 	.closest('.tabs').find('.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
+	// 	$('.gallery-slider').removeClass('active');
+	// 	$('.tabs-content.active').children('.gallery-slider').addClass('active');
+	// 	galleryInit();
+	// });
+
+
 	// function galleryInit(){
 	// 	new Vue({
 	// 		el: '.gallery-slider.active',
@@ -67,14 +101,4 @@ $(function() {
 	// }
 
 	// galleryInit();
-
-	// $('ul.tabs-caption').on('click', 'li:not(.active)', function() {
-	// 	$(this)
-	// 	.addClass('active').siblings().removeClass('active')
-	// 	.closest('.tabs').find('.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
-	// 	$('.gallery-slider').removeClass('active');
-	// 	$('.tabs-content.active').children('.gallery-slider').addClass('active');
-	// 	galleryInit();
-	// });
-
 });
