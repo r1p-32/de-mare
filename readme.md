@@ -1,7 +1,9 @@
 <h1>De-MARE</h1>
 
-<h2>The sources are in the <strong>app</strong> folder</h2>
-<h2>The project after build in the <strong>dist</strong> folder</h2>
+<ul>
+	<li>The sources are in the <strong>app</strong> folder</li>
+	<li>The project after build in the <strong>dist</strong> folder</li>
+</ul>
 
 <h2>How to use:</h2>
 
