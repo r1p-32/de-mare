@@ -1,0 +1,753 @@
+@import "fonts"
+@import "vars"
+@import "libs"
+@import "base"
+
+.container
+	position: relative
+
+.before
+	content: ''
+	display: block
+	width: 100%
+	height: 100%
+	position: absolute
+
+.clear-list
+	padding: 0
+	margin: 0
+	list-style-type: none
+
+.col-right
+	text-align: right
+.col-left
+	text-align: left
+.col-center
+	text-align: center
+
+.inline-list
+	padding: 0
+	margin: 0
+	list-style-type: none
+	li
+		display: inline-block
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.main-input
+	display: inline-block
+	width: 100%
+	max-width: 220px
+	background-color: #fff
+	border: 1px solid #000
+	text-align: center
+	height: 45px
+
+.btn
+	display: inline-block
+	width: 100%
+	max-width: 220px
+	text-align: center
+	background-color: $main
+	height: 49px
+	line-height: 49px
+	color: #fff
+	border: none
+	transition: background .2s, border .2s, box-shadow .4s
+	border-bottom: 4px solid $main-dark
+	box-shadow: 0px 4px 15px -5px rgba($main, 0.75)
+	&:hover
+		background-color: $accent
+		border-color: $accent-dark
+		color: #fff
+		box-shadow: 0px 10px 15px -5px rgba($accent, 0.75)
+
+.section-title
+	font-family: "Playfair", sans-serif
+	font-size: 30px
+	text-align: center
+	text-transform: uppercase
+	&_white
+		color: #fff
+
+// ---- header -----
+
+.header
+	padding-top: 16px
+
+.header-descr
+	font-size: 20px
+	font-weight: bold
+	color: $main
+	padding-top: 12px
+
+.header-address
+	@extend .clear-list
+	padding-top: 5px
+
+.logo
+	display: block
+	max-width: 240px
+	margin: 0 auto 
+
+.header-phones
+	@extend .clear-list
+	display: inline-block
+	position: relative
+	color: $main
+	font-size: 20px
+	font-weight: bold
+	text-align: right
+	padding-left: 44px
+	padding-top: 4px
+	i
+		position: absolute
+		left: 0
+		top: 50%
+		transform: translateY(-50%)
+		font-size: 62px
+
+.header-btn
+	display: block
+	margin-left: auto
+	margin-top: 5px
+	text-transform: uppercase
+	font-size: 14px
+	max-width: 242px
+	line-height: 54px
+
+.mnu-wrap
+	background-color: $main
+	margin-top: 4px
+	min-height: 54px
+
+.main-mnu
+	@extend .clear-list
+	display: flex
+	align-items: center
+	justify-content: space-between
+	margin: 0 -15px
+	background-color: $main
+
+.main-mnu__link
+	display: block
+	position: relative
+	padding: 0 15px
+	height: 54px
+	line-height: 56px
+	color: #fff
+	text-transform: uppercase
+	&:before
+		@extend .before
+		height: 4px
+		background-color: $main-dark
+		bottom: 0
+		left: 0
+		right: 0
+		width: 0
+		transition: .4s
+	&:hover,
+	&:focus
+		color: $accent
+		&:before
+			width: 100%
+
+.btn-nav
+	width: 50px
+	height: 54px
+	display: none
+	flex-direction: column
+	align-items: flex-start
+	justify-content: center
+	cursor: pointer
+	right: 15px
+	z-index: 1000
+	background-color: transparent
+
+.btn-nav__row
+	height: 4px
+	width: 35px
+	margin: 4px 0
+	background-color: #fff
+	position: relative
+	-webkit-transition: all .5s
+	-o-transition: all .5s
+	transition: all .5s
+
+.btn-nav.active .btn-nav__row:first-child
+	transform: rotate(-135deg)
+	top: 11px;
+	width: 40px;
+
+.btn-nav.active .btn-nav__row:last-child
+	transform: rotate(-225deg)
+	top: -13px
+	width: 40px
+
+.btn-nav.active .btn-nav__row:nth-child(2)
+	opacity: 0
+
+// ---- banner ----
+
+.banner-slide
+	display: flex !important
+	align-items: center
+	position: relative
+	background-size: cover
+	background-position: center
+	min-height: 567px
+	&:before
+		@extend .before
+		height: calc(100% - 114px)
+		width: calc(100% - 138px)
+		border: 2px solid #000
+		top: 54px
+		left: 69px
+
+.banner-form
+	text-align: center
+	.main-input
+		display: block
+		margin: 0 auto 10px
+	.btn
+		margin-top: 10px
+
+.banner-title
+	position: relative
+	&:before
+		@extend .before
+		width: 80px
+		height: 2px
+		background-color: #000
+		margin: 0 auto
+		left: 0
+		right: 0
+		bottom: -11px
+
+.banner-form__subtitle
+	font-family: "Playfair", sans-serif
+	font-size: 34px
+	margin-top: 28px
+
+.banner-form__descr
+	font-family: "Playfair", sans-serif
+	font-size: 20px
+	margin-bottom: 18px
+	span
+		font-size: 34px
+		color: $main
+
+.slick-dots
+	@extend .inline-list
+	position: absolute
+	width: 100%
+	bottom: 22px
+	text-align: center
+	li
+		margin: 0 4px
+		button
+			font-size: 0
+			width: 18px
+			height: 18px
+			border-radius: 50%
+			background-color: #fff
+			border: 1px solid #000
+		&.slick-active
+			button
+				background-color: $main
+				border-color: $main
+
+// ---- gallery ----
+
+.gallery
+	padding: 54px 0
+
+.carousel-3d-slide
+	opacity: .5 !important
+
+.tabs-content
+	display: none
+	&.active
+		display: block
+
+// ---- reviews ---- 
+
+.reviews
+	padding: 38px 0 30px
+	background-color: $main
+	.slick-dots
+		position: static
+		li
+			button
+				border-color: #fff
+				background-color: $main
+			&.slick-active
+				button
+					background-color: #fff
+					border-color: #fff
+
+.reviews-slide
+	padding: 41px 0
+	.col-lg-4
+		&:nth-child(4),
+		&:nth-child(5),
+		&:nth-child(6)
+			.review-full
+				top: auto
+				bottom: -40px
+
+.reviews-item
+	position: relative
+	border: 1px solid #fff
+	border-radius: 10px
+	padding: 12px 40px
+	margin: 9px auto
+	color: #fff
+	text-align: center
+	font-size: 20px
+
+.reviews-item__title
+	line-height: 103px
+	font-family: "Playfair", sans-serif
+	text-transform: uppercase
+	img
+		border-radius: 50%
+		border: 1px solid #fff
+		margin-right: 7px		
+		display: inline-block
+
+.reviews-item__cut
+	height: 65px
+	margin-top: 20px
+	font-style: italic
+
+.review-full
+	display: none
+	align-items: center
+	width: calc(100% + 100px)
+	padding: 25px 15px
+	text-align: left
+	background-color: #fff
+	color: #000
+	border-radius: 10px
+	position: absolute
+	left: -50px
+	top: -40px
+	font-size: 16px
+	font-style: italic
+	transition: .4s
+	z-index: 2
+	span
+		display: block
+		font-family: "Playfair", sans-serif
+		text-transform: uppercase
+		font-style: normal
+		margin-bottom: 7px
+		font-size: 20px
+	img
+		width: 165px
+		height: 165px
+		border: 1px solid #000
+		border-radius: 50%
+		flex-shrink: 0
+		margin-right: 7px
+
+// ---- stock ----
+
+.stock
+	height: 338px
+	position: relative
+	background: url('../img/stock-bg_left.png') top left, url('../img/stock-bg_right.png') top right
+	background-repeat: no-repeat
+	background-color: #fafafa
+	&:before
+		@extend .before
+		top: 36px
+		left: 40px
+		border: 1px solid #000
+		width: calc(100% - 80px)
+		height: calc(100% - 72px)
+
+.stock-form
+	text-align: center
+	padding: 60px 10px
+	.btn,
+	.main-input
+		margin: 20px 5px 0
+
+.stock-form__descr
+	font-family: "Playfair", sans-serif
+	font-size: 30px
+	text-shadow: 0px 0px 2px rgba(#fafafa, 1)
+	strong
+		font-size: 40px
+		font-weight: normal
+		color: $main
+
+// ---- team ----
+
+.team
+	padding: 40px 0
+
+.team-item
+	text-align: center
+	margin: 40px auto 0
+	max-width: 270px
+	img
+		width: 100%
+
+.team-item__name
+	padding: 15px 0
+	font-size: 18px
+	font-weight: bold
+	color: #167fc0
+
+// ---- wysiwyg ----
+
+.wysiwyg
+	padding: 20px 0
+	.section-title
+		margin-bottom: 40px
+
+// ---- recording ----
+
+.recording
+	position: relative
+	background-image: url('../img/recording_bg.jpg')
+	background-size: cover
+	background-position: center
+	&:before
+		@extend .before
+		top: 25px
+		left: 40px
+		border: 1px solid #fff
+		width: calc(100% - 80px)
+		height: calc(100% - 54px)
+
+.recording-form
+	padding: 37px 0 58px
+	position: relative
+	text-align: center
+	.main-input,
+	.btn
+		display: block
+		margin: 18px auto 0
+
+.recording-form__title
+	font-family: "Playfair", sans-serif
+	font-size: 40px
+	position: relative
+	color: #fff
+	&:before
+		@extend .before
+		width: 69px
+		height: 2px
+		margin: 0 auto
+		left: 0
+		right: 0
+		bottom: -14px
+		background-color: #fff
+
+.recording-form__descr
+	display: block
+	font-size: 30px
+	margin: 28px 0 10px
+	color: #fff
+
+// ---- example -----
+
+.example
+	padding-bottom: 66px
+	.col-sm-6
+		padding-left: 0
+		padding-right: 0
+
+.example-item
+	padding-top: 46px
+	text-align: center
+	img
+		width: 100%
+
+.example-item__link
+	display: inline-block
+	color: #000
+	font-size: 24px
+	text-transform: uppercase
+	margin-top: 27px
+	&:hover
+		color: #000
+		text-decoration: underline
+
+// ---- question ----
+
+.question
+	position: relative
+	&:before
+		@extend .before
+		top: 46px
+		left: 40px
+		border: 1px solid #000
+		width: calc(100% - 80px)
+		height: calc(100% - 92px)
+		z-index: 1
+
+.question-form
+	text-align: center
+	padding: 127px 0
+	background-image: url('../img/question_bg.png')
+	background-repeat: no-repeat
+	background-position: 40px bottom
+	.main-input,
+	.btn
+		display: block
+		margin: 18px auto 0
+		position: relative
+		z-index: 2
+
+.question-form__title
+	@extend .recording-form__title
+	color: #000
+	text-transform: uppercase
+	z-index: 2
+	&:before
+		@extend .before
+		width: 69px
+		height: 2px
+		margin: 0 auto
+		left: 0
+		right: 0
+		bottom: -14px
+		background-color: #000
+
+.question-form__descr
+	display: block
+	color: #000
+	font-size: 20px
+	margin-top: 27px
+	position: relative
+	z-index: 2
+	strong
+		font-size: 30px
+		color: $main
+
+// ---- map ----
+
+.map
+	iframe
+		margin-bottom: -10px
+
+// ---- footer ----
+
+.footer
+	background-color: $main
+	color: #fff
+	font-size: 14px
+
+.footer-item
+	padding-top: 46px
+
+.footer-title
+	text-transform: uppercase
+	font-size: 16px
+	border-bottom: 2px dotted #fff
+	padding-bottom: 12px
+	margin-bottom: 17px
+
+.footer-list
+	padding-left: 16px
+
+.footer-link
+	color: #fff
+	&:hover,
+	&:focus
+		color: $accent
+
+.footer-contacts
+	@extend .clear-list
+
+.soc-list
+	@extend .inline-list
+	margin-top: 10px
+
+.soc-link	
+	display: block
+	width: 26px
+	height: 26px
+	border: 2px solid #fff
+	border-radius: 50%
+	color: #fff
+	text-align: center
+	line-height: 24px
+	transition: .3s
+	&:hover
+		background-color: #fff
+		color: $main
+
+.footer-bottom
+	background-color: $main-dark
+	margin-top: 25px
+	text-align: center
+	padding: 14px 0
+	span
+		display: block
+
+// -----------------------
+// ----- inner-price -----
+// -----------------------
+
+.catalog
+	padding: 30px 0
+	.section-title
+		position: relative
+		margin-bottom: 30px
+		&:before
+			@extend .before
+			width: 62px
+			height: 2px
+			background-color: #000
+			left: 0
+			right: 0
+			margin: 0 auto
+			bottom: -10px	
+	.accent
+		color: $main
+	table
+		width: 100%
+		thead
+			td
+				font-weight: bold
+				text-transform: uppercase
+				font-size: 20px
+				border-bottom: 5px solid #fff !important
+		td
+			height: 58px
+			background: #f9f5fa
+			padding: 0 12px
+			border-left: 5px solid #fff
+			border-bottom: 5px solid #fff
+			&:first-child
+				width: 39%
+			&.center
+				text-align: center
+	
+.catalog-item
+	position: relative
+	padding-left: 33%
+	margin-bottom: 20px
+
+.catalog-title
+	display: flex
+	align-items: center
+	justify-content: center
+	font-family: "Playfair", sans-serif
+	font-size: 30px
+	color: #fff
+	background-color: $main
+	position: absolute
+	height: calc(100% - 5px)
+	width: 33%
+	left: 0
+	top: 0
+	&_grey
+		background-color: #898989
+	i
+		font-size: 80px
+	span
+		max-width: 60%
+		margin-left: 10px
+
+.price-master
+	td
+		height: 119px
+		img
+			width: 54px
+			height: 54px
+			border-radius: 50%
+			border: 1px solid $main
+
+.price-master__text
+	display: inline-block
+	vertical-align: middle
+	padding-left: 5px
+	span
+		display: block
+		color: $main
+		strong
+			color: #000
+			font-weight: normal
+
+.price-master__title
+	font-size: 20px
+	display: flex
+	align-items: center
+	small
+		color: #4f4f4f
+		font-size: 12px
+		font-weight: 300
+		span
+			font-weight: bold
+	strong
+		flex-shrink: 0
+		margin-right: 18px
+
+.price-master__descr
+	font-size: 14px
+	font-weight: 300
+	span
+		font-weight: bold
+
+.catalog-item__price
+	font-size: 20px
+	font-weight: bold
+	color: $main
+
+// ---- price-slider ----
+
+.price-slider-wrap
+	padding: 105px 0 90px
+	background-image: url('../img/recording_bg.jpg')
+	background-size: cover
+	background-position: center
+
+.price-slider-item
+	max-width: 266px
+	margin: 0 auto
+	text-align: center
+
+.price-slider-item__name,
+.price-slider-item__price
+	display: flex
+	align-items: center
+	justify-content: center
+	padding: 0px 10px
+	color: #fff
+
+.price-slider-item__name
+	height: 106px
+	background-color: rgba($main, 0.5)
+	text-transform: uppercase
+
+.price-slider-item__price
+	height: 70px
+	background-color: #2b2a29
+
+.slider-arr
+	background: none
+	border: none
+	font-size: 40px
+	color: $main
+	position: absolute
+	top: 50%
+	transform: translateY(-50%)
+	z-index: 2
+	&:hover
+		color: $main-dark
+	&_prev
+		left: -50px
+	&_next
+		right: -50px
+
+@import "media" // Всегда в конце

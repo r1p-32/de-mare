@@ -1,0 +1,238 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1199px)
+	.main-mnu__link
+		padding: 0 10px
+		font-size: 14px
+
+	.reviews-slide
+		.col-lg-4
+			&:nth-child(4)
+				.review-full
+					top: -40px
+					bottom: auto
+
+	.stock
+		background-size: auto 50%
+
+	.question-form
+		background-position: bottom left
+
+	.catalog-title
+		font-size: 24px
+		i
+			font-size: 40px
+
+	.slider-arr
+		&_prev
+			left: -10px
+		&_next
+			right: -10px
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px)
+	.mnu-wrap
+		margin-top: 20px
+
+	.btn-nav
+		display: flex
+
+	.main-mnu
+		display: none
+		margin: 0
+		padding: 0 25px
+		position: absolute
+		width: calc(100% + 30px)
+		left: -15px
+		right: -15px
+		z-index: 5
+		li
+			&:last-child
+				.main-mnu__link
+					&:before
+						display: none
+
+	.main-mnu__link
+		&:before
+			width: 100%
+
+	.stock,
+	.recording,
+	.question
+		&.before
+			top: 15px
+			left: 15px
+			width: calc(100% - 30px)
+			height: calc(100% - 30px)
+
+	.catalog-item
+		padding-left: 0
+
+	.catalog-title
+		position: static
+		width: 100%
+
+	.slider-arr
+		&_prev
+			left: 0px
+		&_next
+			right: 0px
+	
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	.header-descr
+		text-align: center
+
+	.header-address
+		max-width: 320px
+		margin: 0 auto
+
+	.header-phones
+		margin: 20px 0
+
+	.header
+		.col-right
+			text-align: center
+
+	.header-btn
+		margin: 0 auto
+
+	.banner-slide
+		&:before
+			height: calc(100% - 30px)
+			width: calc(100% - 30px)
+			top: 15px
+			left: 15px
+
+	.banner-form
+		padding: 0 10px
+
+	.banner
+		padding-bottom: 20px
+
+	.slick-dots
+		position: static
+
+	.review-full
+		width: 100%
+		left: 0
+		top: 0
+		min-height: 100%
+		img
+			width: 115px
+			height: 115px
+
+	.reviews-slide
+		.col-lg-4
+			&:nth-child(4),
+			&:nth-child(5)
+				.review-full
+					top: 0
+					bottom: auto
+			&:nth-child(6)
+				.review-full
+					top: auto
+					bottom: 0
+
+	.stock
+		background-image: none
+
+	.stock-form
+		.main-input,
+		.btn
+			display: block
+			margin: 10px auto 0
+
+	.question-form
+		background-image: none
+		padding: 35px 25px
+
+	.price
+		tr
+			display: block
+			margin-bottom: 10px
+			td
+				height: auto
+				display: block
+				width: 100% !important
+
+	.table-wrap
+		overflow-x: scroll
+
+	.catalog
+		table:not(.price)
+			thead
+				td
+					font-size: 10px
+			tr
+				td
+					font-size: 14px
+
+	.catalog-item__price
+		font-size: 14px
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	.banner-slide
+		padding: 40px 0
+
+	.review-full
+		flex-direction: column
+
+	.reviews-item__title
+		line-height: 1.4
+		img
+			display: block
+			margin: 0 auto
+
+	.recording-form
+		padding: 35px 25px
+	
+	.price-master__title
+		display: block
+		small
+			display: block
+			margin-bottom: 5px
+
+	.catalog-title
+		display: block
+		text-align: center
+		i
+			display: none
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	.header-address
+		font-size: 14px
+
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	/**/
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	.main-mnu	
+		display: flex !important
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+
