@@ -38,16 +38,21 @@ $(function() {
 		]
 	});
 
-	$('.gallery-slider').slick({
-		nextArrow: '<button type="button" class="slider-arr slider-arr_next"><i>&#xE80C</i></button>',
-		prevArrow: '<button type="button" class="slider-arr slider-arr_prev"><i>&#xE80D</i></button>',
-		arrows: true,
-		accessibility: false,
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		centerMode: true,
-		centerPadding: '0px',
-	});
+	function getGallerySettings(){
+		return {
+			nextArrow: '<button type="button" class="slider-arr slider-arr_next"><i>&#xE80C</i></button>',
+			prevArrow: '<button type="button" class="slider-arr slider-arr_prev"><i>&#xE80D</i></button>',
+			arrows: true,
+			infinite: false,
+			accessibility: false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			centerMode: true,
+			centerPadding: '30%',
+		}
+	}
+
+	$('.gallery-slider').slick(getGallerySettings());
 
 	$('.btn-nav').click(function(){
 		$(this).toggleClass('active');
@@ -69,36 +74,18 @@ $(function() {
 
 	$('ul.gallery-filter').on('click', 'li:not(.active)', function() {
 		var filtered = $(this).attr('data-filter');
+		$('.gallery-slider').slick('slickUnfilter');
 		$(this).addClass('active').siblings().removeClass('active');
-		$(this).closest('.gallery').find('.filter-slide').removeClass('active');
 		if (filtered != 'all') {
+			$('.gallery-slider').slick('unslick');
+			$('.gallery-slider').slick(getGallerySettings());
+			console.log('test');
 			$('.gallery-slider').slick('slickFilter', '.' + filtered);
-			$('.slick-curent').slick('setPosition');
 		} else {
+			$('.gallery-slider').slick('unslick');
+			$('.gallery-slider').slick(getGallerySettings());
 			$('.gallery-slider').slick('slickUnfilter');
 		}
 	});
 
-
-		// $('ul.tabs-caption').on('click', 'li:not(.active)', function() {
-	// 	$(this)
-	// 	.addClass('active').siblings().removeClass('active')
-	// 	.closest('.tabs').find('.tabs-content').removeClass('active').eq($(this).index()).addClass('active');
-	// 	$('.gallery-slider').removeClass('active');
-	// 	$('.tabs-content.active').children('.gallery-slider').addClass('active');
-	// 	galleryInit();
-	// });
-
-
-	// function galleryInit(){
-	// 	new Vue({
-	// 		el: '.gallery-slider.active',
-	// 		components: {
-	// 			'carousel-3d': Carousel3d.Carousel3d,
-	// 			'slide': Carousel3d.Slide
-	// 		}
-	// 	});
-	// }
-
-	// galleryInit();
 });
