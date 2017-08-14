@@ -65,9 +65,9 @@ $(function() {
 
 	$('.reviews-item').hover(
 		function(){
-			$(this).children(".review-full").css("display", "flex");
+			$(this).children(".review-full").addClass("active");
 		}, function(){
-			$(this).children(".review-full").css("display", "none");
+			$(this).children(".review-full").removeClass("active");
 		});
 
 	$('.team-item__descr').equalHeights();

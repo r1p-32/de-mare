@@ -126,8 +126,11 @@
 		top: 0
 		min-height: 100%
 		img
-			width: 115px
-			height: 115px
+			width: 140px
+			height: 140px
+			float: none
+			margin: 0 auto
+			display: block
 
 	.reviews-slide
 		.col-lg-4
@@ -191,9 +194,6 @@
 	.banner-slide
 		padding: 40px 0
 
-	.review-full
-		flex-direction: column
-
 	.reviews-item__title
 		line-height: 1.4
 		img
@@ -253,3 +253,12 @@
 @media only screen and (min-width : 1200px)
 	/**/
 
+@media screen and (-webkit-min-device-pixel-ratio:0)
+	input[name="name"]
+		&::i-block-chrome, 
+		&::-webkit-input-placeholder
+			text-indent: 75px
+	input[name="phone"]
+		&::i-block-chrome, 
+		&::-webkit-input-placeholder
+			text-indent: 60px

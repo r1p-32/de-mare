@@ -357,18 +357,19 @@
 	height: 65px
 	margin-top: 20px
 	font-style: italic
+	overflow: hidden
 
 .review-full
 	display: none
 	align-items: center
-	width: calc(100% + 100px)
+	width: 120%
 	padding: 25px 15px
 	text-align: left
 	background-color: #fff
 	color: #000
 	border-radius: 10px
 	position: absolute
-	left: -50px
+	left: -10%
 	top: -40px
 	font-size: 16px
 	font-style: italic
@@ -388,6 +389,9 @@
 		border-radius: 50%
 		flex-shrink: 0
 		margin-right: 7px
+		float: left
+	&.active
+		display: block
 
 // ---- stock ----
 
